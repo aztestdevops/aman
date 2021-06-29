@@ -1,0 +1,116 @@
+aman@AZ-VM001:~/gitproject$ git status
+On branch master
+nothing to commit, working tree clean
+
+aman@AZ-VM001:~/gitproject$ git log
+commit 5acebd32aa1a70119841e3c66b26cd5cbf37c330 (HEAD -> master)
+Author: Ubuntu <aman@AZ-VM001.shht40iwbdou3phhpdqhb5qxnd.bx.internal.cloudapp.net>
+Date:   Tue Jun 29 16:11:30 2021 +0000
+
+    second commit
+
+commit 2dd11e3428de1610142bc463d061742196d6418f
+Author: Ubuntu <aman@AZ-VM001.shht40iwbdou3phhpdqhb5qxnd.bx.internal.cloudapp.net>
+Date:   Tue Jun 29 16:01:40 2021 +0000
+
+    first commit
+
+aman@AZ-VM001:~/gitproject$ touch app.py result.java app.js
+aman@AZ-VM001:~/gitproject$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        app.js
+        app.py
+        result.java
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+aman@AZ-VM001:~/gitproject$ git add .
+aman@AZ-VM001:~/gitproject$ git log
+commit 5acebd32aa1a70119841e3c66b26cd5cbf37c330 (HEAD -> master)
+Author: Ubuntu <aman@AZ-VM001.shht40iwbdou3phhpdqhb5qxnd.bx.internal.cloudapp.net>
+Date:   Tue Jun 29 16:11:30 2021 +0000
+
+    second commit
+
+commit 2dd11e3428de1610142bc463d061742196d6418f
+Author: Ubuntu <aman@AZ-VM001.shht40iwbdou3phhpdqhb5qxnd.bx.internal.cloudapp.net>
+Date:   Tue Jun 29 16:01:40 2021 +0000
+
+    first commit
+
+aman@AZ-VM001:~/gitproject$ git add result.java
+aman@AZ-VM001:~/gitproject$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   app.js
+        new file:   app.py
+        new file:   result.java
+
+aman@AZ-VM001:~/gitproject$ git log
+commit 5acebd32aa1a70119841e3c66b26cd5cbf37c330 (HEAD -> master)
+Author: Ubuntu <aman@AZ-VM001.shht40iwbdou3phhpdqhb5qxnd.bx.internal.cloudapp.net>
+Date:   Tue Jun 29 16:11:30 2021 +0000
+
+    second commit
+
+commit 2dd11e3428de1610142bc463d061742196d6418f
+Author: Ubuntu <aman@AZ-VM001.shht40iwbdou3phhpdqhb5qxnd.bx.internal.cloudapp.net>
+Date:   Tue Jun 29 16:01:40 2021 +0000
+
+    first commit
+aman@AZ-VM001:~/gitproject$ git show
+commit 5acebd32aa1a70119841e3c66b26cd5cbf37c330 (HEAD -> master)
+Author: Ubuntu <aman@AZ-VM001.shht40iwbdou3phhpdqhb5qxnd.bx.internal.cloudapp.net>
+Date:   Tue Jun 29 16:11:30 2021 +0000
+
+    second commit
+
+diff --git a/real.html b/real.html
+index e69de29..a46a5af 100644
+--- a/real.html
++++ b/real.html
+@@ -0,0 +1 @@
++Welcome to Git!
+
+aman@AZ-VM001:~/gitproject$ git reset --hard 2dd11e3428de1610142bc463d061742196d6418f
+HEAD is now at 2dd11e3 first commit
+
+aman@AZ-VM001:~/gitproject$ touch app.py  real.html  result.java
+aman@AZ-VM001:~/gitproject$ git rm app.py
+
+aman@AZ-VM001:~/gitproject$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        app.js
+        app.py
+        result.java
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+aman@AZ-VM001:~/gitproject$ git add .
+aman@AZ-VM001:~/gitproject$ ls
+app.js  app.py  real.html  result.java
+aman@AZ-VM001:~/gitproject$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   app.js
+        new file:   app.py
+        new file:   result.java
+
+aman@AZ-VM001:~/gitproject$ git rm --cached app.py
+rm 'app.py'
+aman@AZ-VM001:~/gitproject$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   app.js
+        new file:   result.java
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        app.py
